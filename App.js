@@ -2,7 +2,7 @@ import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 import HomeScreen from './src/views/HomeScreen'
 import MenuScreen from './src/views/MenuScreen'
-import StorySelectScreen from './src/views/StorySelectScreen'
+import FormScreen from './src/views/FormScreen'
 
 const navigator = createStackNavigator(
   {
@@ -15,11 +15,8 @@ const navigator = createStackNavigator(
     Menu: {
       screen: MenuScreen,
     },
-    SelectStory: {
-      screen: StorySelectScreen,
-      navigationOptions: {
-        headerTitle: 'Select Story'
-      }
+    Form: {
+      screen: FormScreen
     }
   },
   {
