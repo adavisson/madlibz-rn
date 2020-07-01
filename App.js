@@ -16,7 +16,10 @@ const navigator = createStackNavigator(
   {
     initialRouteName: 'Home',
     defaultNavigationOptions: {
-      title: 'MadLibz'
+      title: 'MadLibz',
+      headerStyle: {
+        backgroundColor: '#f66783',
+      }
     }
   },
 )
