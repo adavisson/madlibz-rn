@@ -7,7 +7,7 @@ const navigator = createStackNavigator(
     Home: {
       screen: HomeScreen,
       navigationOptions: {
-        headerShown: true
+        headerShown: false
       },
     },
   },
@@ -16,7 +16,7 @@ const navigator = createStackNavigator(
     defaultNavigationOptions: {
       title: 'MadLibz'
     }
-  }
+  },
 )
 
 export default createAppContainer(navigator)
