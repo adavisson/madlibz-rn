@@ -7,16 +7,23 @@ const SelectStoryDialog = ({ navigation, visible, hideDialog }) => {
   return (
     <Portal>
       <Dialog style={styles.dialogView} visible={visible} onDismiss={hideDialog}>
-        <Dialog.Title style={styles.header}>Select a Story</Dialog.Title>
+        <Dialog.Title style={styles.text}>Select a Story</Dialog.Title>
         <Dialog.Content>
-
-        </Dialog.Content>
-        <Dialog.Actions>
-          <Button onPress={hideDialog}>Cancel</Button>
-          <Button onPress={() => {
+          <List.Item title='Story 1' titleStyle={styles.text} onPress={() => {
             hideDialog()
             navigation.navigate('Form')
-          }}>Select</Button>
+          }} />
+          <List.Item title='Story 2' titleStyle={styles.text} onPress={() => {
+            hideDialog()
+            navigation.navigate('Form')
+          }} />
+          <List.Item title='Story 3' titleStyle={styles.text} onPress={() => {
+            hideDialog()
+            navigation.navigate('Form')
+          }} />
+        </Dialog.Content>
+        <Dialog.Actions>
+          <Button onPress={hideDialog} labelStyle={styles.text}>Cancel</Button>
         </Dialog.Actions>
       </Dialog>
     </Portal>
@@ -27,9 +34,9 @@ const styles = StyleSheet.create({
   dialogView: {
     backgroundColor: '#f66783',
   },
-  header: {
+  text: {
     color: '#522d80'
-  }
+  },
 })
  
 export default SelectStoryDialog;
