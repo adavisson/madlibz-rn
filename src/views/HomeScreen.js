@@ -4,7 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { vh } from 'react-native-expo-viewport-units'
 import { Button } from 'react-native-paper'
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.homeView}>
       <LinearGradient
@@ -12,7 +12,15 @@ const HomeScreen = () => {
         style={styles.linearGradient}
       >
         <Text style={styles.header}>MadLibz</Text>
-        <Button mode='contained' style={styles.button} color='#f66783' >Get Started</Button>
+        <Button
+          mode='contained'
+          style={styles.button}
+          color='#f66783'
+          labelStyle={{ color: '#522d80' }}
+          onPress={() => navigation.navigate('Menu')}
+        >
+          Get Started
+        </Button>
       </LinearGradient>
     </View>
   )
@@ -34,8 +42,8 @@ const styles = StyleSheet.create({
     color: '#522d80',
   },
   button: {
-    marginBottom: '40%'
-  }
+    marginBottom: '40%',
+  },
 })
 
 export default HomeScreen
