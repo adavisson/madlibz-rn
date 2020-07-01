@@ -12,7 +12,7 @@ const MenuScreen = ({ navigation }) => {
   return (
     <View style={styles.menuView}>
       <Text style={styles.header}>Let's Get Started!</Text>
-      <SelectStoryDialog visible={visible} hideDialog={hideDialog} />
+      <SelectStoryDialog navigation={navigation} visible={visible} hideDialog={hideDialog} />
       <Button
         mode='contained'
         color='#f66783'
