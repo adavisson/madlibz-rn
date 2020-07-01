@@ -1,17 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { Button } from 'react-native-paper'
+import SelectStoryDialog from '../components/SelectStoryDialog'
 
 const MenuScreen = ({ navigation }) => {
+  const [visible, setVisible] = useState(false)
+
+  const showDialog = () => setVisible(true)
+  const hideDialog = () => setVisible(false)
+
   return (
     <View style={styles.menuView}>
       <Text style={styles.header}>Let's Get Started!</Text>
+      <SelectStoryDialog visible={visible} hideDialog={hideDialog} />
       <Button
         mode='contained'
         color='#f66783'
         style={{ ...styles.button, marginTop: '50%' }}
         labelStyle={{ color: '#522d80' }}
-        // onPress={() => navigation.navigate('SelectStory')}
+        onPress={showDialog}
       >
         Choose Story
       </Button>

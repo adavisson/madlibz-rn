@@ -1,5 +1,7 @@
+import React from 'react';
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
+import { Provider as PaperProvider } from 'react-native-paper'
 import HomeScreen from './src/views/HomeScreen'
 import MenuScreen from './src/views/MenuScreen'
 import FormScreen from './src/views/FormScreen'
@@ -31,4 +33,12 @@ const navigator = createStackNavigator(
   },
 )
 
-export default createAppContainer(navigator)
+const Navigator = createAppContainer(navigator)
+
+export default function App() {
+  return(
+    <PaperProvider>
+      <Navigator />
+    </PaperProvider>
+  )
+}
