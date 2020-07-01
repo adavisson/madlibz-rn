@@ -11,15 +11,15 @@ const SelectStoryDialog = ({ navigation, visible, hideDialog }) => {
         <Dialog.Content>
           <List.Item title='Story 1' titleStyle={styles.text} onPress={() => {
             hideDialog()
-            navigation.navigate('Form')
+            navigation.navigate('Form', { random: false })
           }} />
           <List.Item title='Story 2' titleStyle={styles.text} onPress={() => {
             hideDialog()
-            navigation.navigate('Form')
+            navigation.navigate('Form', { random: false })
           }} />
           <List.Item title='Story 3' titleStyle={styles.text} onPress={() => {
             hideDialog()
-            navigation.navigate('Form')
+            navigation.navigate('Form', { random: false })
           }} />
         </Dialog.Content>
         <Dialog.Actions>

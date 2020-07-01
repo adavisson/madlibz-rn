@@ -27,7 +27,7 @@ const MenuScreen = ({ navigation }) => {
         color='#f66783'
         style={styles.button}
         labelStyle={{ color: '#522d80' }}
-        onPress={() => navigation.navigate('Form')}
+        onPress={() => navigation.navigate('Form', { random: true })}
       >
         Random Story
       </Button>
