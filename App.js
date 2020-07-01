@@ -11,7 +11,9 @@ const navigator = createStackNavigator(
         headerShown: false
       },
     },
-    Menu: MenuScreen
+    Menu: {
+      screen: MenuScreen,
+    }
   },
   {
     initialRouteName: 'Home',
@@ -19,7 +21,8 @@ const navigator = createStackNavigator(
       title: 'MadLibz',
       headerStyle: {
         backgroundColor: '#f66783',
-      }
+      },
+      headerTintColor: '#522d80'
     }
   },
 )
