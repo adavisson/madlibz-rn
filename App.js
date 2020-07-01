@@ -1,6 +1,7 @@
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 import HomeScreen from './src/views/HomeScreen'
+import MenuScreen from './src/views/MenuScreen'
 
 const navigator = createStackNavigator(
   {
@@ -10,6 +11,7 @@ const navigator = createStackNavigator(
         headerShown: false
       },
     },
+    Menu: MenuScreen
   },
   {
     initialRouteName: 'Home',
