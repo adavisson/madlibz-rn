@@ -1,36 +1,59 @@
-import React, { useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { View, Text, StyleSheet, FlatList, Item } from 'react-native'
+import { TextInput } from 'react-native-paper'
 
 const FormScreen = ({ navigation }) => {
-  
+  const [template, setTemplate] = useState({ blanks: [] })
+  const [values, setValues] = useState({})
+
   useEffect(() => {
     const random = navigation.getParam('random')
 
+    const fetchData = async () => {
+      const result = await fetch('https://madlibz.herokuapp.com/api/random')
+      const data = await result.json()
+      setTemplate(data)
+    }
+
     if (random) {
-      console.log('random')
+      fetchData()
     } else {
       console.log('not random')
     }
-  },[])
+  }, [])
 
   return (
     <View style={styles.formView}>
-      <Text style={styles.header}>Form</Text>
+      <Text style={styles.header}>{template.title}</Text>
+      <FlatList 
+        data={template.blanks}
+        renderItem={({ item, index }) => {
+          return (
+            <TextInput key={index} mode='flat' style={styles.input} underlineColor='#f66783' label={item} />
+          )
+        }} />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   formView: {
     flex: 1,
     backgroundColor: '#522d80',
-    alignItems: 'center',
+    alignItems: 'stretch',
   },
   header: {
+    alignSelf: 'center',
     marginTop: '10%',
     fontSize: 36,
     color: '#f66783',
+  },  
+  input: {
+    alignSelf: 'center',
+    width: '75%',
+    backgroundColor: 'transparent',
+    margin: 5,
   },
 })
- 
-export default FormScreen;
+
+export default FormScreen
