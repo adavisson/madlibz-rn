@@ -37,7 +37,7 @@ const FormScreen = ({ navigation }) => {
         mode='contained'
         color='#f66783'
         labelStyle={{ color: '#522d80' }}
-        onPress={() => navigation.navigate('Solution')}
+        onPress={() => navigation.navigate('Solution', { template: template, values: values})}
       >
         Submit
       </Button>
