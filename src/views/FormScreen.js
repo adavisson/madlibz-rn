@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, StyleSheet, FlatList, Item } from 'react-native'
-import { TextInput } from 'react-native-paper'
+import { TextInput, Button } from 'react-native-paper'
 
 const FormScreen = ({ navigation }) => {
   const [template, setTemplate] = useState({ blanks: [] })
@@ -33,6 +33,14 @@ const FormScreen = ({ navigation }) => {
           )
         }}
         keyExtractor={(blank, index) => index}/>
+      <Button
+        mode='contained'
+        color='#f66783'
+        labelStyle={{ color: '#522d80' }}
+        onPress={() => navigation.navigate('Solution')}
+      >
+        Submit
+      </Button>
     </View>
   )
 }
