@@ -27,11 +27,12 @@ const FormScreen = ({ navigation }) => {
       <Text style={styles.header}>{template.title}</Text>
       <FlatList 
         data={template.blanks}
-        renderItem={({ item, index }) => {
+        renderItem={({ item }) => {
           return (
-            <TextInput key={index} mode='flat' style={styles.input} underlineColor='#f66783' label={item} />
+            <TextInput mode='flat' style={styles.input} underlineColor='#f66783' label={item} />
           )
-        }} />
+        }}
+        keyExtractor={(blank, index) => index}/>
     </View>
   )
 }
@@ -43,6 +44,7 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
   },
   header: {
+    width: '75%',
     alignSelf: 'center',
     marginTop: '10%',
     fontSize: 36,
