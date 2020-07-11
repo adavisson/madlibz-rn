@@ -25,20 +25,34 @@ const FormScreen = ({ navigation }) => {
   return (
     <View style={styles.formView}>
       <Text style={styles.header}>{template.title}</Text>
-      <FlatList 
+      <FlatList
         data={template.blanks}
-        renderItem={({ item }) => {
+        renderItem={({ item, index }) => {
           return (
-            <TextInput mode='flat' style={styles.input} underlineColor='#f66783' label={item} />
+            <TextInput
+              id={`word_${index}`}
+              mode='flat'
+              style={styles.input}
+              underlineColor='#f66783'
+              label={item}
+              value={values[index]}
+              onChangeText={text => setValues({...values, [id]:text})}
+            />
           )
         }}
-        keyExtractor={(blank, index) => index}/>
+        keyExtractor={(blank, index) => index}
+      />
       <Button
         style={styles.button}
         mode='contained'
         color='#f66783'
         labelStyle={{ color: '#522d80' }}
-        onPress={() => navigation.navigate('Solution', { template: template, values: values})}
+        onPress={() =>
+          navigation.navigate('Solution', {
+            template: template,
+            values: Object.values(values),
+          })
+        }
       >
         Submit
       </Button>
@@ -58,7 +72,7 @@ const styles = StyleSheet.create({
     marginTop: '10%',
     fontSize: 36,
     color: '#f66783',
-  },  
+  },
   input: {
     alignSelf: 'center',
     width: '75%',
@@ -70,7 +84,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginBottom: 15,
     marginTop: 15,
-  }
+  },
 })
 
 export default FormScreen
