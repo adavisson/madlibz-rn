@@ -30,13 +30,12 @@ const FormScreen = ({ navigation }) => {
         renderItem={({ item, index }) => {
           return (
             <TextInput
-              id={`word_${index}`}
               mode='flat'
               style={styles.input}
               underlineColor='#f66783'
               label={item}
               value={values[index]}
-              onChangeText={text => setValues({...values, [id]:text})}
+              onChangeText={text => setValues({...values, [index]:text})}
             />
           )
         }}
