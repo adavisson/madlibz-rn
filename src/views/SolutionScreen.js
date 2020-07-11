@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
   },
   storyView: {
     width: '90%',
+    borderRadius: 15,
     alignSelf: 'center',
     backgroundColor: '#f66783',
     marginTop: 30,
