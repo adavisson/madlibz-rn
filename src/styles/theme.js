@@ -7,5 +7,7 @@ export const theme = {
     ...DefaultTheme.colors,
     primary: '#f66783',
     accent: '#522d80',
+    placeholder: '#f66783',
+    text: '#f66783',
   },
 };
