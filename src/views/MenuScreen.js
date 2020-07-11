@@ -13,7 +13,7 @@ const MenuScreen = ({ navigation }) => {
     <View style={styles.menuView}>
       <Text style={styles.header}>Let's Get Started!</Text>
       <SelectStoryDialog navigation={navigation} visible={visible} hideDialog={hideDialog} />
-      <Button
+      {/* <Button
         mode='contained'
         color='#f66783'
         style={{ ...styles.button, marginTop: '50%' }}
@@ -21,7 +21,7 @@ const MenuScreen = ({ navigation }) => {
         onPress={showDialog}
       >
         Choose Story
-      </Button>
+      </Button> */}
       <Button
         mode='contained'
         color='#f66783'
@@ -29,7 +29,8 @@ const MenuScreen = ({ navigation }) => {
         labelStyle={{ color: '#522d80' }}
         onPress={() => navigation.navigate('Form', { random: true })}
       >
-        Random Story
+        {/* Random Story */}
+        Get Story
       </Button>
     </View>
   )
@@ -49,6 +50,7 @@ const styles = StyleSheet.create({
   button: {
     width: '50%',
     margin: 25,
+    marginTop: '50%',
   },
 })
 
