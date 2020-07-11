@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, FlatList } from 'react-native'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
 
 const SolutionScreen = ({ navigation }) => {
   const template = navigation.getParam('template')
@@ -8,31 +8,19 @@ const SolutionScreen = ({ navigation }) => {
   return (
     <View style={styles.solutionView}>
       <Text style={styles.header}>{template.title}</Text>
-      {/* <FlatList
-        data={template.value}
-        renderItem={({ item }) => {
-          return <Text>{item}</Text>
-        }}
-        keyExtractor={(blank, index) => index}
-      />
-      <FlatList
-        data={values}
-        renderItem={({ item }) => {
-          return <Text>{item}</Text>
-        }}
-        keyExtractor={(value, index) => index}
-      /> */}
-      <Text style={styles.storyText}>
-        {template.value.map((string, index) => {
-          if (string !== 0 && values[index]){
-            return string + values[index]
-          } else if (!string && values[index]){
-            return values[index]
-          } else if (string !== 0) {
-            return string
-          }
-        })}
-      </Text>
+      <ScrollView style={styles.storyView}>
+        <Text style={styles.storyText}>
+          {template.value.map((string, index) => {
+            if (string !== 0 && values[index]){
+              return string + values[index]
+            } else if (!string && values[index]){
+              return values[index]
+            } else if (string !== 0) {
+              return string
+            }
+          })}
+        </Text>
+      </ScrollView>
     </View>
   )
 }
@@ -51,10 +39,18 @@ const styles = StyleSheet.create({
     fontSize: 36,
     color: '#f66783',
   },
-  storyText: {
-    fontSize: 18,
-    color: '#f66783',
+  storyView: {
+    width: '90%',
+    alignSelf: 'center',
+    backgroundColor: '#f66783',
     marginTop: 30,
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
+  storyText: {
+    fontSize: 16,
+    color: '#522d80',
+    lineHeight: 40,
   }
 })
 
