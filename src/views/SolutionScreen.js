@@ -8,8 +8,8 @@ const SolutionScreen = ({ navigation }) => {
   return (
     <View style={styles.solutionView}>
       <Text style={styles.header}>{template.title}</Text>
-      <FlatList
-        data={template.blanks}
+      {/* <FlatList
+        data={template.value}
         renderItem={({ item }) => {
           return <Text>{item}</Text>
         }}
@@ -21,7 +21,18 @@ const SolutionScreen = ({ navigation }) => {
           return <Text>{item}</Text>
         }}
         keyExtractor={(value, index) => index}
-      />
+      /> */}
+      <Text style={styles.storyText}>
+        {template.value.map((string, index) => {
+          if (string !== 0 && values[index]){
+            return string + values[index]
+          } else if (!string && values[index]){
+            return values[index]
+          } else if (string !== 0) {
+            return string
+          }
+        })}
+      </Text>
     </View>
   )
 }
@@ -31,14 +42,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#522d80',
     alignItems: 'stretch',
+    padding: 25,
   },
   header: {
-    width: '75%',
+    width: '85%',
     alignSelf: 'center',
     marginTop: '10%',
     fontSize: 36,
     color: '#f66783',
   },
+  storyText: {
+    fontSize: 18,
+    color: '#f66783',
+    marginTop: 30,
+  }
 })
 
 export default SolutionScreen
