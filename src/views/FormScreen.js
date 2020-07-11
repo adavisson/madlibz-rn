@@ -34,6 +34,7 @@ const FormScreen = ({ navigation }) => {
         }}
         keyExtractor={(blank, index) => index}/>
       <Button
+        style={styles.button}
         mode='contained'
         color='#f66783'
         labelStyle={{ color: '#522d80' }}
@@ -64,6 +65,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     margin: 5,
   },
+  button: {
+    width: '50%',
+    alignSelf: 'center',
+    marginBottom: 15,
+    marginTop: 15,
+  }
 })
 
 export default FormScreen
