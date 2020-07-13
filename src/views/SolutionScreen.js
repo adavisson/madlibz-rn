@@ -12,7 +12,7 @@ const SolutionScreen = ({ navigation }) => {
         <Text style={styles.storyText}>
           {template.value.map((string, index) => {
             if (string !== 0 && values[index]){
-              return string + values[index]
+            return string + values[index]
             } else if (!string && values[index]){
               return values[index]
             } else if (string !== 0) {
