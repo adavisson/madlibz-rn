@@ -10,7 +10,7 @@ const SolutionDialog = ({ visible, hideDialog, template, values }) => {
         visible={visible}
         onDismiss={hideDialog}
       >
-        <Dialog.Title style={styles.text}>{template.title}</Dialog.Title>
+        <Dialog.Title style={styles.header}>{template.title}</Dialog.Title>
         <Dialog.Content>
           <Text style={styles.storyText}>
             {template.value.length > 0 && template.value.map((string, index) => {
@@ -26,7 +26,7 @@ const SolutionDialog = ({ visible, hideDialog, template, values }) => {
         </Dialog.Content>
         <Dialog.Actions>
           <Button onPress={hideDialog} labelStyle={styles.text}>
-            Cancel
+            Go Back
           </Button>
         </Dialog.Actions>
       </Dialog>
@@ -37,6 +37,11 @@ const SolutionDialog = ({ visible, hideDialog, template, values }) => {
 const styles = StyleSheet.create({
   dialogView: {
     backgroundColor: '#f66783',
+  },
+  header: {
+    alignSelf: 'center',
+    // fontSize: 36,
+    color: '#522d80',
   },
   text: {
     color: '#522d80',
