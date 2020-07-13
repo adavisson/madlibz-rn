@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, StyleSheet, FlatList, Item } from 'react-native'
 import { TextInput, Button } from 'react-native-paper'
+import SolutionDialog from '../components/SolutionDialog'
 
 const FormScreen = ({ navigation }) => {
   const [template, setTemplate] = useState({ blanks: [] })
   const [values, setValues] = useState({})
+  const [visible, setVisible] = useState(false)
+
+  const showDialog = () => setVisible(true)
+  const hideDialog = () => setVisible(false)
 
   useEffect(() => {
     const random = navigation.getParam('random')
@@ -16,8 +21,12 @@ const FormScreen = ({ navigation }) => {
     }
 
     if (random) {
-      fetchData()
-    } else if(!random) {
+      try {
+        fetchData()
+      } catch(e) {
+        console.log(e)
+      }
+    } else if (!random) {
       setTemplate(navigation.getParam('template'))
     }
   }, [])
@@ -25,6 +34,7 @@ const FormScreen = ({ navigation }) => {
   return (
     <View style={styles.formView}>
       <Text style={styles.header}>{template.title}</Text>
+      <SolutionDialog visible={visible} hideDialog={hideDialog} template={template} values={Object.values(values)} />
       <FlatList
         data={template.blanks}
         renderItem={({ item, index }) => {
@@ -35,7 +45,7 @@ const FormScreen = ({ navigation }) => {
               underlineColor='#f66783'
               label={item}
               value={values[index]}
-              onChangeText={text => setValues({...values, [index]:text})}
+              onChangeText={(text) => setValues({ ...values, [index]: text })}
             />
           )
         }}
@@ -46,11 +56,12 @@ const FormScreen = ({ navigation }) => {
         mode='contained'
         color='#f66783'
         labelStyle={{ color: '#522d80' }}
-        onPress={() =>
-          navigation.navigate('Solution', {
-            template: template,
-            values: Object.values(values),
-          })
+        onPress={//() =>
+          // navigation.navigate('Solution', {
+          //   template: template,
+          //   values: Object.values(values),
+          // })
+          showDialog
         }
       >
         Submit
