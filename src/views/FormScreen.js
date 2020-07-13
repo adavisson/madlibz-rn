@@ -17,8 +17,8 @@ const FormScreen = ({ navigation }) => {
 
     if (random) {
       fetchData()
-    } else {
-      console.log('not random')
+    } else if(!random) {
+      setTemplate(navigation.getParam('template'))
     }
   }, [])
 
