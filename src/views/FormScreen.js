@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, StyleSheet, FlatList, Item } from 'react-native'
+import { View, Text, StyleSheet, FlatList, Keyboard } from 'react-native'
 import { TextInput, Button } from 'react-native-paper'
 import SolutionDialog from '../components/SolutionDialog'
 
 const FormScreen = ({ navigation }) => {
-  const [template, setTemplate] = useState({ blanks: [] })
+  const [template, setTemplate] = useState({value: [], title: '', blanks: []})
   const [values, setValues] = useState({})
   const [visible, setVisible] = useState(false)
 
@@ -56,12 +56,10 @@ const FormScreen = ({ navigation }) => {
         mode='contained'
         color='#f66783'
         labelStyle={{ color: '#522d80' }}
-        onPress={//() =>
-          // navigation.navigate('Solution', {
-          //   template: template,
-          //   values: Object.values(values),
-          // })
-          showDialog
+        onPress={() => {
+          Keyboard.dismiss()
+          showDialog()
+          }
         }
       >
         Submit
